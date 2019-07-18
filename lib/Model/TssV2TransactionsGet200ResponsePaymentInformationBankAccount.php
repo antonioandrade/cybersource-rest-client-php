@@ -300,6 +300,9 @@ class TssV2TransactionsGet200ResponsePaymentInformationBankAccount implements Ar
      */
     public function setType($type)
     {
+        // this has thrown exceptions
+        $type = str_replace("check", "C", $type);
+        
         if (!is_null($type) && (strlen($type) > 1)) {
             throw new \InvalidArgumentException('invalid length for $type when calling TssV2TransactionsGet200ResponsePaymentInformationBankAccount., must be smaller than or equal to 1.');
         }

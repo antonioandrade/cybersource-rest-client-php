@@ -521,7 +521,8 @@ class TssV2TransactionsGet200ResponseOrderInformationBillTo implements ArrayAcce
     public function setAdministrativeArea($administrativeArea)
     {
         if (!is_null($administrativeArea) && (strlen($administrativeArea) > 3)) {
-            throw new \InvalidArgumentException('invalid length for $administrativeArea when calling TssV2TransactionsGet200ResponseOrderInformationBillTo., must be smaller than or equal to 3.');
+            $administrativeArea = substr($administrativeArea, 0, 3);
+            // throw new \InvalidArgumentException('invalid length for $administrativeArea when calling TssV2TransactionsGet200ResponseOrderInformationBillTo., must be smaller than or equal to 3.');
         }
 
         $this->container['administrativeArea'] = $administrativeArea;
